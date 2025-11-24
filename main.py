@@ -7,7 +7,7 @@ from pydantic import BaseModel
 import google.generativeai as genai
 
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyBnw7iK58wqf3ZRt2HkjeqUL5OgEByKHcw")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY_HERE")
 genai.configure(api_key=GEMINI_API_KEY)
 model = genai.GenerativeModel('gemini-2.5-flash')
 
