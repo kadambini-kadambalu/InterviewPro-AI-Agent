@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterviewPro (Kalia AI)</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-container">
+    <header>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+            InterviewPro
+        </div>
+        <div id="timer-display" style="font-weight: 700; font-size: 1.2rem; color: #2563EB; font-feature-settings: 'tnum';">
+            00:00
+        </div>
+        <button id="end-btn" class="btn-danger hidden" onclick="endInterview()">End Now</button>
+    </header>
+
+    <div id="setup-section" class="section active">
+        <div class="setup-card">
+            <h2>Interview Setup</h2>
+            <p class="subtitle">Configure your session with Kalia.</p>
+            
+            <div class="input-group">
+                <label>Your Name</label>
+                <input type="text" id="nameInput" placeholder="John Doe">
+            </div>
+
+            <div class="input-group">
+                <label>Target Job Role</label>
+                <input type="text" id="roleInput" placeholder="e.g. Python Developer">
+            </div>
+
+            <div class="input-group">
+                <label>Duration (Minutes)</label>
+                <input type="number" id="timeInput" value="5" min="1" max="60">
+            </div>
+
+            <div class="input-group">
+                <label>Paste Resume / Key Skills</label>
+                <input type="file" id="resumeInput" accept="application/pdf" style="width:100%; padding:0.75rem; border:1px solid #D1D5DB; border-radius:8px;">
+            </div>
+
+            <button class="btn-primary full-width" onclick="startInterview()">Start Interview</button>
+        </div>
+    </div>
+
+    <div id="chat-section" class="section">
+        <div class="chat-window" id="chatWindow"></div>
+        
+        <div class="typing-indicator hidden" id="typingIndicator">
+            <span></span><span></span><span></span>
+        </div>
+
+        <div class="voice-controls" style="padding: 1.5rem; background: #fff; border-top: 1px solid #E5E7EB; display: flex; justify-content: center; align-items: center; gap: 1rem;">
+            <p style="font-size: 0.9rem; color: #6B7280; margin-right: 10px;">Tap to Speak</p>
+            
+            <button class="btn-icon" id="mic-btn" onclick="startVoiceInput()" style="width: 60px; height: 60px; background-color: #2563EB; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                <svg viewBox="0 0 24 24" width="30" height="30" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                    <line x1="12" y1="19" x2="12" y2="23"></line>
+                    <line x1="8" y1="23" x2="16" y2="23"></line>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="feedback-section" class="section">
+        <div class="feedback-container">
+            <h2>Interview Analysis</h2>
+            <div id="feedback-content" class="feedback-card">
+                <div class="loader-text">Analyzing your responses...</div>
+            </div>
+            <button class="btn-primary" onclick="location.reload()">Start New Session</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
